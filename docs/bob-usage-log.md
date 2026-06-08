@@ -27,3 +27,17 @@
 **Manual changes:** Reviewed the generated files to confirm that the world lore and character submission can be used to test continuity checking.
 
 **Result:** CanonKeeper now has sample lore and a conflict-heavy character submission that can be used for future AI review features.
+
+## Entry 3: Prototype review interface
+
+**Date:** 2026-06-08
+
+**Task:** Add the first CanonKeeper review interface to the homepage.
+
+**Prompt summary:** Asked IBM Bob to update `app/page.tsx` with a prototype UI containing a World Lore textarea, New Submission textarea, Review for Continuity button, and placeholder Review Results card.
+
+**How Bob helped:** Bob generated the React/TypeScript and Tailwind CSS needed to add the review interface while keeping the visual style consistent with the existing landing page.
+
+**Manual changes:** Reviewed Bob's proposed update, saved the file, restarted or refreshed the local dev server, and tested the interface at `http://localhost:3000`.
+
+**Result:** CanonKeeper now has a visible prototype interface for entering lore and new creative content.
