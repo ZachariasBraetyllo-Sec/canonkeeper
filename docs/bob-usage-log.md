@@ -69,3 +69,17 @@
 **Manual changes:** Tested the buttons locally to confirm that both samples load correctly without copy/paste and that Clear Fields resets the form.
 
 **Result:** CanonKeeper now has a smoother demo workflow with one-click sample loading.
+
+## Entry 6: Improved mock continuity review output
+
+**Date:** 2026-06-08
+
+**Task:** Improve the prototype review results so they better demonstrate CanonKeeper's intended AI behavior.
+
+**Prompt summary:** Asked IBM Bob to update `app/page.tsx` so the mock review output includes more realistic sections: Summary Verdict, Potential Continuity Conflicts, Missing Context, Suggested Fixes, and Creator Control Note.
+
+**How Bob helped:** Bob generated a more detailed structured mock review tailored to the sample supernatural lore and character submission, including example conflicts around consecrated ground, magic limits, faction approval, and missing explanations.
+
+**Manual changes:** Reviewed Bob's update, saved the file, loaded the sample lore and sample submission locally, and tested the Review for Continuity button.
+
+**Result:** CanonKeeper now has a clearer demo review flow that better communicates how the future AI analysis will work.

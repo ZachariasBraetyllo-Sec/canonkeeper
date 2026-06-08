@@ -7,6 +7,7 @@ interface ReviewResult {
   conflicts: string[];
   missingContext: string[];
   suggestedFixes: string[];
+  creatorNote: string;
 }
 
 // Sample data constants for demo purposes
@@ -107,26 +108,39 @@ export default function Home() {
       return;
     }
 
-    // Generate mock review result
+    // Generate mock review result tailored to the supernatural lore sample
     const mockResult: ReviewResult = {
-      summaryVerdict: "⚠️ MODERATE CONTINUITY RISK - Several potential conflicts detected that should be addressed before publication.",
+      summaryVerdict: "🚨 HIGH CONTINUITY RISK - Multiple critical conflicts with established canon detected. This submission requires significant revision before approval.",
       conflicts: [
-        "Character age inconsistency: The new submission mentions the protagonist being 25 years old, but established lore states they were born in 1995, making them 31 in the current timeline (2026).",
-        "Location contradiction: The new content places the 'Crystal Tower' in the northern district, but previous canon established it in the eastern quarter of the city.",
-        "Power system mismatch: The submission describes magic requiring verbal incantations, contradicting the established silent casting system in your world lore.",
+        "VAMPIRE-WITCH HYBRID IMPOSSIBILITY: The character is described as a 'Vampire-Witch Hybrid' who retained magical abilities after vampiric transformation. However, established lore states witches are 'born with innate magical ability' and have a 'natural human lifespan.' The vampiric transformation process (blood exchange over three nights) would fundamentally alter the witch's biology, likely severing their connection to ley lines and magical ability.",
+        "SUNLIGHT RESISTANCE VIOLATION: Lyra can 'walk in sunlight for up to 2 hours with only minor discomfort,' directly contradicting the established vampire weakness: 'Sunlight causes instant combustion.' This is a core species limitation with no exceptions mentioned in canon.",
+        "CONSECRATED GROUND CONFLICT: Lyra has 'taken residence in an abandoned church.' While the lore doesn't explicitly address churches, vampires 'cannot enter private residences without invitation' and have historical associations with being repelled by holy ground. An abandoned church would likely still be consecrated territory.",
+        "MULTI-DISCIPLINE MAGIC VIOLATION: Lyra 'specializes in all three disciplines (elemental, divination, and binding magic),' but established lore clearly states 'Each witch has ONE primary discipline.' This is a fundamental limitation of the magic system.",
+        "ALTERNATIVE FEEDING CONTRADICTION: Lyra 'feeds on magical energy from ley lines instead of blood,' but vampire lore explicitly states they 'must consume human blood weekly; animal blood causes severe illness.' No alternative feeding methods are mentioned as possible.",
+        "MASQUERADE BREACH: Lyra is 'offering her services as a magical consultant to humans, helping them with supernatural problems.' This directly violates the Covenant's first law: 'The Masquerade: Supernatural existence must remain hidden from humans.'",
+        "UNAUTHORIZED COVEN FORMATION: Lyra wants to 'establish a new coven that accepts both witches and vampires.' However, witch lore states covens 'must belong to a registered coven' and there's no mention of cross-species covens being permitted under the Covenant.",
+        "FORBIDDEN TRANSFORMATION RESEARCH: Lyra aims to 'create a new supernatural species by developing a ritual that can turn humans into hybrid beings.' This parallels the werewolf restriction where 'biting a human to create new werewolves has been forbidden since 1923,' suggesting species creation is likely prohibited.",
       ],
       missingContext: [
-        "The new character 'Elena Darkwood' is introduced without explanation of her relationship to the established Darkwood family lineage.",
-        "Reference to 'The Great Schism' event without clarifying when it occurred relative to other established timeline events.",
-        "Mention of 'shadow crystals' as a power source, but no prior lore explains their origin or properties.",
+        "How did Lyra's vampiric transformation NOT destroy her connection to ley lines and magical ability? This requires explanation as it contradicts the biological nature of witch magic.",
+        "What is the source of Lyra's sunlight resistance? Is it related to her hybrid nature, a unique artifact, or a previously unknown vampire bloodline trait?",
+        "How has Lyra avoided detection by the Wardens while openly breaking the Masquerade by offering magical services to humans?",
+        "What is the Tribunal's stance on hybrid beings? Are they legal under the Covenant, or is Lyra's very existence a violation?",
+        "How did Lyra acquire the ability to fly and use telepathy? Standard vampire powers listed are 'enhanced strength, speed, hypnotic gaze' - flight and telepathy are not mentioned.",
+        "Why are six werewolves operating as 'lone wolves' when the lore states 'lone wolves are considered unstable' and packs normally have 8-20 members?",
+        "How is Lyra recruiting children (ages 10-12) without their parents' knowledge or the Circle of Thorns' awareness? This seems like it would attract immediate attention.",
       ],
       suggestedFixes: [
-        "Update the protagonist's age to 31, or adjust the birth year in the world lore to maintain consistency.",
-        "Either relocate the Crystal Tower to the eastern quarter in the new submission, or update the world lore to reflect the northern district location.",
-        "Revise magic casting in the new submission to use silent casting, or add a narrative explanation for why this character uses verbal incantations (e.g., they're using an older, forbidden technique).",
-        "Add a brief introduction explaining Elena's connection to the Darkwood family, or reference her branch of the family tree.",
-        "Include a timeline note placing The Great Schism relative to other major events, or remove the reference if it's not essential.",
+        "HYBRID EXPLANATION: Add detailed lore explaining how vampire-witch hybrids are possible. Perhaps Lyra's transformation was interrupted or modified by a powerful ritual, creating an unprecedented case that the Tribunal is monitoring.",
+        "SUNLIGHT LIMITATION: Either remove the sunlight resistance entirely, or explain it as a temporary effect from a rare artifact/spell that requires constant renewal and has significant costs.",
+        "CHURCH RESIDENCE: Relocate Lyra to a secular abandoned building (warehouse, apartment, etc.) or explain that the church was deconsecrated, making it safe for vampires.",
+        "MAGIC SPECIALIZATION: Reduce Lyra's abilities to ONE primary discipline as per canon rules. Her hybrid nature could make her exceptionally powerful in that one discipline instead.",
+        "FEEDING REQUIREMENT: Have Lyra still require blood but perhaps need less frequently due to supplementing with ley line energy, or explain that she's slowly dying from refusing to feed properly.",
+        "MASQUERADE COMPLIANCE: Change Lyra's activities to work within supernatural-only circles, or have her operating in secret with the constant threat of Warden discovery as a plot tension point.",
+        "TRIBUNAL APPROVAL: Add that Lyra is seeking official Tribunal approval for her coven concept, or that she's operating illegally and this is a source of conflict.",
+        "WEREWOLF PACK CONTEXT: Explain why these six werewolves are lone wolves (exiled? survivors of a destroyed pack?) and address the 'unstable' concern mentioned in lore.",
       ],
+      creatorNote: "Remember: These are suggestions, not mandates. You're the creator and have final say over your world. If you want Lyra to break established rules, that can be a compelling story element - but it works best when the rule-breaking is intentional, acknowledged in-narrative, and has consequences. Consider whether each conflict serves your story or is an accidental oversight. CanonKeeper is here to help you make informed creative decisions, not to restrict your imagination.",
     };
 
     setReviewResult(mockResult);
@@ -331,7 +345,7 @@ export default function Home() {
                     </h4>
                     <ul className="space-y-2">
                       {reviewResult.suggestedFixes.map((fix, index) => (
-                        <li 
+                        <li
                           key={index}
                           className="text-gray-700 dark:text-gray-300 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg border border-green-200 dark:border-green-800"
                         >
@@ -341,12 +355,22 @@ export default function Home() {
                     </ul>
                   </div>
 
+                  {/* Creator Control Note */}
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      Creator Control Note
+                    </h4>
+                    <div className="text-gray-700 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <span className="font-medium text-blue-700 dark:text-blue-400">💡</span> {reviewResult.creatorNote}
+                    </div>
+                  </div>
+
                   {/* Prototype Notice */}
                   <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4 mt-6">
                     <p className="text-sm text-purple-800 dark:text-purple-300">
-                      <strong>Note:</strong> This is a prototype demonstration with mock data. 
-                      The actual AI-powered review will analyze your specific content and provide 
-                      personalized continuity feedback.
+                      <strong>Prototype Demo:</strong> This is a demonstration with mock analysis tailored to the sample supernatural lore.
+                      The actual AI-powered review will analyze your specific content and provide
+                      personalized continuity feedback based on your unique world-building.
                     </p>
                   </div>
                 </div>
