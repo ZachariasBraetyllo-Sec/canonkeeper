@@ -41,3 +41,17 @@
 **Manual changes:** Reviewed Bob's proposed update, saved the file, restarted or refreshed the local dev server, and tested the interface at `http://localhost:3000`.
 
 **Result:** CanonKeeper now has a visible prototype interface for entering lore and new creative content.
+
+## Entry 4: Mock continuity review flow
+
+**Date:** 2026-06-08
+
+**Task:** Add interactive prototype behavior to the CanonKeeper review interface.
+
+**Prompt summary:** Asked IBM Bob to update `app/page.tsx` so the Review for Continuity button validates the textareas and displays a structured mock review result.
+
+**How Bob helped:** Bob generated the React/TypeScript state handling, input validation, button behavior, and mock review result display.
+
+**Manual changes:** Tested the interface locally by clicking the review button with empty fields, one filled field, and both fields filled.
+
+**Result:** CanonKeeper now has an interactive prototype flow that only displays review results when both World Lore and New Submission contain text.
