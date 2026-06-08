@@ -55,3 +55,17 @@
 **Manual changes:** Tested the interface locally by clicking the review button with empty fields, one filled field, and both fields filled.
 
 **Result:** CanonKeeper now has an interactive prototype flow that only displays review results when both World Lore and New Submission contain text.
+
+## Entry 5: Demo sample loading controls
+
+**Date:** 2026-06-08
+
+**Task:** Add demo helper controls for loading sample lore and sample submission text.
+
+**Prompt summary:** Asked IBM Bob to update `app/page.tsx` with Load Sample Lore, Load Sample Submission, and Clear Fields buttons using local sample string constants.
+
+**How Bob helped:** Bob generated the React/TypeScript state updates and Tailwind CSS needed to load sample data into the textareas and reset the prototype form.
+
+**Manual changes:** Tested the buttons locally to confirm that both samples load correctly without copy/paste and that Clear Fields resets the form.
+
+**Result:** CanonKeeper now has a smoother demo workflow with one-click sample loading.

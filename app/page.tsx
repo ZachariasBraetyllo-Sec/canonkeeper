@@ -9,11 +9,90 @@ interface ReviewResult {
   suggestedFixes: string[];
 }
 
+// Sample data constants for demo purposes
+const SAMPLE_WORLD_LORE = `# Nocturne City - World Lore
+
+## The Three Species
+
+### Vampires
+- Created through blood exchange ritual requiring three nights
+- Weaknesses: Sunlight causes instant combustion; cannot cross running water
+- Must consume human blood weekly; animal blood causes severe illness
+- Cannot enter private residences without invitation
+- Powers: Enhanced strength, speed, hypnotic gaze (only works on humans)
+
+### Witches
+- Born with innate magical ability; powers manifest at age 13
+- Magic System: Draw power from ley lines; spells require verbal incantations
+- Lifespan: Natural human lifespan (magic cannot extend it)
+- Each witch has ONE primary discipline (elemental, divination, or binding)
+- Using magic on another supernatural being without consent is a capital offense
+
+### Werewolves
+- Hereditary condition passed through bloodlines
+- Transformation: Forced shift during full moon; voluntary shifts possible other times
+- Weaknesses: Silver causes burns and prevents healing
+- Age at half the rate of humans
+- Biting a human to create new werewolves has been forbidden since 1923
+
+## The Covenant of Shadows (established 1847)
+1. The Masquerade: Supernatural existence must remain hidden from humans
+2. The Truce: No species may wage war against another
+3. Disputes are settled by a Tribunal (one representative per species)
+
+## Current Timeline: 2026`;
+
+const SAMPLE_SUBMISSION = `# Character Submission: Lyra Nightshade
+
+## Basic Information
+- Name: Lyra Nightshade
+- Species: Vampire-Witch Hybrid
+- Age: 157 years old (turned at age 25 in 1894)
+
+## Abilities
+- Vampire Powers: Enhanced strength, speed, flight, and telepathy
+- Witch Magic: Specializes in ALL THREE disciplines (elemental, divination, and binding)
+- Unique Trait: Can walk in sunlight for up to 2 hours with only minor discomfort
+- Feeding: Feeds on magical energy from ley lines instead of blood
+
+## Current Situation
+Lyra recently arrived in Nocturne City and has taken residence in an abandoned church.
+She's been offering magical services to humans, helping them with supernatural problems.
+She's also been recruiting young witches (ages 10-12) to teach them magic before their
+powers manifest at age 13.
+
+## Goals
+- Establish a new coven that accepts both witches and vampires
+- Create a new supernatural species by developing a ritual that can turn humans into
+  hybrid beings like herself
+- Reveal supernatural beings to humanity and work together openly
+
+## Relationships
+- Works closely with a pack of six lone werewolves`;
+
 export default function Home() {
   const [worldLore, setWorldLore] = useState("");
   const [newSubmission, setNewSubmission] = useState("");
   const [reviewResult, setReviewResult] = useState<ReviewResult | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Demo helper functions
+  const loadSampleLore = () => {
+    setWorldLore(SAMPLE_WORLD_LORE);
+    setErrorMessage("");
+  };
+
+  const loadSampleSubmission = () => {
+    setNewSubmission(SAMPLE_SUBMISSION);
+    setErrorMessage("");
+  };
+
+  const clearFields = () => {
+    setWorldLore("");
+    setNewSubmission("");
+    setReviewResult(null);
+    setErrorMessage("");
+  };
 
   const handleReview = () => {
     // Clear previous results and errors
@@ -105,6 +184,28 @@ export default function Home() {
           </h2>
           
           <div className="space-y-6">
+            {/* Demo Helper Buttons */}
+            <div className="flex flex-wrap gap-3 justify-center bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+              <button
+                onClick={loadSampleLore}
+                className="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-blue-700 dark:text-blue-300 font-medium px-4 py-2 rounded-lg text-sm border border-blue-300 dark:border-blue-700 transition-colors shadow-sm"
+              >
+                📚 Load Sample Lore
+              </button>
+              <button
+                onClick={loadSampleSubmission}
+                className="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-blue-700 dark:text-blue-300 font-medium px-4 py-2 rounded-lg text-sm border border-blue-300 dark:border-blue-700 transition-colors shadow-sm"
+              >
+                📝 Load Sample Submission
+              </button>
+              <button
+                onClick={clearFields}
+                className="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-medium px-4 py-2 rounded-lg text-sm border border-gray-300 dark:border-gray-600 transition-colors shadow-sm"
+              >
+                🗑️ Clear Fields
+              </button>
+            </div>
+
             {/* World Lore Textarea */}
             <div>
               <label 
